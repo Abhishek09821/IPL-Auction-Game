@@ -1,0 +1,81 @@
+/* WaitingRoom.css */
+.waiting-room {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem; position: relative; overflow: hidden;
+}
+.wr-bg-ring {
+  position: absolute; border-radius: 50%; border: 1px solid rgba(245,166,35,.1);
+  pointer-events: none;
+}
+.wr-ring1 { width: 600px; height: 600px; top: -200px; right: -200px; animation: slowSpin 30s linear infinite; }
+.wr-ring2 { width: 400px; height: 400px; bottom: -150px; left: -150px; animation: slowSpin 20s linear infinite reverse; }
+@keyframes slowSpin { to { transform: rotate(360deg); } }
+
+.wr-content { width: 100%; max-width: 960px; z-index: 1; display: flex; flex-direction: column; gap: 1.3rem; }
+
+.wr-header { text-align: center; }
+.room-code-chip {
+  display: inline-flex; align-items: center; gap: .9rem;
+  background: var(--card); border: 1.5px solid rgba(245,166,35,.35);
+  border-radius: 50px; padding: .55rem 1.4rem; margin-top: 1rem;
+  cursor: pointer; transition: all .2s;
+}
+.room-code-chip:hover { border-color: var(--gold); box-shadow: 0 0 20px var(--gold-glow); }
+.rcc-label { font-size: .68rem; letter-spacing: .15em; font-family: var(--ff-head); }
+.rcc-code  { font-size: 2rem; letter-spacing: .25em; }
+.rcc-copy  { font-size: .72rem; letter-spacing: .08em; }
+
+.wr-grid { display: grid; grid-template-columns: 1fr 340px; gap: 1.2rem; align-items: start; }
+
+/* Team grid */
+.wr-team-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: .65rem;
+}
+.wr-team-card {
+  background: var(--card); border: 1.5px solid var(--border);
+  border-radius: var(--r2); padding: .9rem .5rem; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: .25rem;
+  transition: all .2s;
+}
+.wr-team-card.mine  { border-color: var(--tc, var(--gold)); background: rgba(255,255,255,.04); box-shadow: 0 0 16px color-mix(in srgb, var(--tc) 20%, transparent); }
+.wr-team-card.taken { opacity: .65; }
+.wrtc-emoji    { font-size: 1.7rem; }
+.wrtc-name     { font-size: 1.1rem; font-family: var(--ff-display); }
+.wrtc-fullname { font-size: .6rem; line-height: 1.3; }
+.wrtc-you      { font-size: .72rem; color: var(--cyan); font-weight: 700; font-family: var(--ff-head); letter-spacing: .08em; margin-top: .2rem; }
+.wrtc-owner    { font-size: .72rem; font-family: var(--ff-head); font-weight: 600; }
+.wrtc-ai       { font-size: .68rem; }
+.wrtc-claim-btn { margin-top: .2rem; }
+
+/* Members */
+.wr-members { display: flex; flex-direction: column; gap: .4rem; margin-bottom: 1rem; min-height: 120px; }
+.member-row {
+  display: flex; align-items: center; gap: .7rem; padding: .55rem .6rem;
+  border-radius: 8px; border: 1px solid transparent; transition: all .2s;
+}
+.member-row.me { background: rgba(0,212,255,.06); border-color: rgba(0,212,255,.2); }
+.mr-avatar {
+  width: 34px; height: 34px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; font-weight: 900;
+  font-size: .95rem; color: #000; flex-shrink: 0; font-family: var(--ff-head);
+}
+.mr-info { flex: 1; display: flex; flex-direction: column; gap: .05rem; }
+.mr-name { font-size: .88rem; display: flex; align-items: center; gap: .3rem; }
+.host-badge {
+  background: var(--gold); color: #000; font-size: .6rem; padding: .1rem .35rem;
+  border-radius: 50px; font-family: var(--ff-head); font-weight: 900; letter-spacing: .05em;
+}
+.mr-team { font-size: .75rem; }
+.mr-ready { font-size: 1rem; }
+
+/* Actions */
+.wr-actions { display: flex; flex-direction: column; gap: .7rem; }
+.ready-btn, .start-btn { width: 100%; justify-content: center; font-size: 1.05rem; }
+
+@media (max-width: 850px) {
+  .wr-grid { grid-template-columns: 1fr; }
+  .wr-team-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 500px) {
+  .wr-team-grid { grid-template-columns: repeat(2, 1fr); }
+}

@@ -1,0 +1,29 @@
+/* SeasonScreen.css */
+.season-screen { flex:1; display:flex; flex-direction:column; padding:1.4rem 1.8rem; gap:1rem; overflow-y:auto; }
+.ss-header { display:flex; align-items:flex-start; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+.ss-actions { display:flex; gap:.7rem; align-items:center; flex-wrap:wrap; }
+.ss-grid { display:grid; grid-template-columns:1fr 360px; gap:1.2rem; flex:1; align-content:start; }
+
+.pts-table-wrap { overflow:hidden; }
+.pts-table { width:100%; border-collapse:collapse; font-size:.88rem; }
+.pts-table th {
+  padding:.55rem .9rem; text-align:left; background:var(--surface);
+  color:var(--muted); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+  font-family:var(--ff-head);
+}
+.pts-table td { padding:.55rem .9rem; border-bottom:1px solid var(--border); }
+.pts-table tr.qualify td:first-child { border-left:3px solid var(--green); }
+.pts-table tr.myrow td { background:rgba(0,212,255,.04); }
+.pts-note { font-size:.78rem; padding:.6rem .9rem; border-top:1px solid var(--border); }
+
+.match-feed { display:flex; flex-direction:column; gap:.55rem; }
+.match-card { padding:.8rem 1rem; }
+.mc-teams { display:flex; align-items:center; gap:.5rem; margin-bottom:.3rem; }
+.mc-team { font-size:.88rem; flex:1; }
+.mc-team:last-child { text-align:right; }
+.mc-scores { display:flex; align-items:center; gap:.4rem; }
+.mc-score { font-size:1.2rem; min-width:2rem; text-align:center; }
+.mc-vs { font-size:.72rem; }
+.mc-result { font-size:.75rem; }
+
+@media (max-width:800px) { .ss-grid { grid-template-columns:1fr; } }

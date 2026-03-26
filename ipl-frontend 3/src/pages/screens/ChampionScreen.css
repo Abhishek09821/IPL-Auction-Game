@@ -1,0 +1,39 @@
+/* ChampionScreen.css */
+.champion-screen {
+  flex:1; display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden; text-align:center;
+  background:radial-gradient(ellipse 70% 60% at 50% 40%, rgba(245,166,35,.18) 0%, transparent 70%);
+}
+.conf-container { position:absolute; inset:0; pointer-events:none; z-index:0; }
+.conf-piece { position:absolute; top:-20px; animation:confFall linear infinite; opacity:.9; }
+@keyframes confFall {
+  0%  { transform:translateY(0) rotate(0deg);   opacity:1; }
+  100%{ transform:translateY(110vh) rotate(720deg); opacity:0; }
+}
+
+.champ-content { position:relative; z-index:1; padding:2rem; max-width:560px; }
+.champ-trophy  { font-size:6rem; animation:bounce 1.3s ease infinite; display:block; margin-bottom:.5rem; }
+.champ-label   { font-size:.9rem; letter-spacing:.25em; color:var(--gold); text-transform:uppercase; margin-bottom:.6rem; }
+.champ-name    {
+  font-size:clamp(2.5rem, 6vw, 4.8rem);
+  background:linear-gradient(135deg, var(--gold), #fff);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  line-height:1; margin-bottom:.5rem;
+}
+.champ-message { font-size:1.05rem; margin:1rem 0 1.8rem; line-height:1.6; }
+.champ-actions { display:flex; justify-content:center; }
+
+/* Firework rings */
+.fw {
+  position:absolute; border-radius:50%;
+  border:2px solid rgba(245,166,35,.3);
+  animation:fwPulse 3s ease infinite;
+}
+.fw1 { width:300px; height:300px; top:10%; left:5%;  animation-delay:0s; }
+.fw2 { width:200px; height:200px; top:60%; right:8%; animation-delay:1s; }
+.fw3 { width:150px; height:150px; top:20%; right:15%;animation-delay:2s; }
+@keyframes fwPulse {
+  0%  { transform:scale(.8); opacity:.6; }
+  50% { transform:scale(1.2); opacity:.2; }
+  100%{ transform:scale(.8); opacity:.6; }
+}

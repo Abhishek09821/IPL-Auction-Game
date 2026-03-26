@@ -1,0 +1,144 @@
+/* TradingWindow.css */
+.trading-window {
+  flex: 1; display: flex; flex-direction: column;
+  padding: 1.2rem 1.6rem; gap: 1rem; overflow-y: auto; position: relative;
+}
+
+/* Toast notification */
+.trade-notif {
+  position: fixed; top: 5rem; left: 50%; transform: translateX(-50%);
+  background: var(--card); border: 1.5px solid var(--gold);
+  color: var(--gold); padding: .65rem 1.4rem; border-radius: 50px;
+  font-family: var(--ff-head); font-size: .95rem; font-weight: 700;
+  z-index: 99; animation: fadeIn .3s ease;
+  box-shadow: 0 4px 24px var(--gold-glow);
+}
+
+/* Header */
+.tw-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  flex-wrap: wrap; gap: 1rem;
+}
+.tw-header-right { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
+.incoming-badge { animation: pulse 1.5s ease infinite; }
+
+/* Tabs */
+.tw-tabs {
+  display: flex; gap: .4rem; border-bottom: 1px solid var(--border);
+  padding-bottom: .6rem; flex-shrink: 0;
+}
+.tw-tab {
+  background: none; border: none; cursor: pointer; color: var(--muted);
+  padding: .5rem 1.1rem; border-radius: var(--r);
+  font-family: var(--ff-head); font-size: .9rem; font-weight: 700;
+  letter-spacing: .05em; transition: all .2s; display: flex;
+  align-items: center; gap: .4rem;
+}
+.tw-tab:hover  { color: var(--text); background: var(--card); }
+.tw-tab.active { color: var(--gold); background: rgba(245,166,35,.1); }
+.tab-badge {
+  background: var(--red); color: #fff; font-size: .65rem;
+  width: 18px; height: 18px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--ff-head);
+}
+
+/* ── PROPOSE grid ──────────────────── */
+.tw-propose-grid {
+  display: grid; grid-template-columns: 1fr 280px 1fr;
+  gap: 1rem; flex: 1; align-items: start;
+}
+
+/* Squad panels */
+.tw-squad-panel { padding: 1rem; height: 100%; max-height: 520px; display: flex; flex-direction: column; }
+.squad-scroll { overflow-y: auto; flex: 1; display: flex; flex-direction: column; gap: .25rem; margin-top: .4rem; }
+
+.trade-player-row {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .5rem .55rem; border-radius: 8px; cursor: pointer;
+  border: 1.5px solid transparent; transition: all .15s; background: var(--card2);
+}
+.trade-player-row:hover   { border-color: rgba(245,166,35,.3); background: rgba(245,166,35,.05); }
+.trade-player-row.selected { border-color: var(--gold); background: rgba(245,166,35,.09); }
+.tpr-emoji  { font-size: 1.3rem; flex-shrink: 0; }
+.tpr-info   { flex: 1; display: flex; flex-direction: column; gap: .15rem; }
+.tpr-name   { font-size: .88rem; }
+.tpr-right  { display: flex; flex-direction: column; align-items: flex-end; gap: .1rem; }
+.tpr-rating { font-size: .72rem; }
+.tpr-price  { font-size: .8rem; }
+.tpr-check  { color: var(--green); font-weight: 900; font-size: .95rem; margin-left: .2rem; }
+
+/* Center panel */
+.tw-center-panel { display: flex; flex-direction: column; gap: 0; }
+
+.target-team-list { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .3rem; }
+.target-team-btn {
+  display: flex; align-items: center; gap: .35rem;
+  background: var(--card2); border: 1.5px solid var(--border);
+  border-radius: 50px; padding: .4rem .85rem; cursor: pointer;
+  font-family: var(--ff-head); font-size: .85rem; font-weight: 700;
+  transition: all .2s; color: var(--text2);
+}
+.target-team-btn:hover  { border-color: var(--tc, var(--gold)); }
+.target-team-btn.active { border-color: var(--tc, var(--gold)); background: rgba(255,255,255,.05); }
+
+/* Trade summary */
+.trade-summary { padding: 1.1rem; }
+.ts-row {
+  display: flex; align-items: center; gap: .6rem; margin: .6rem 0;
+}
+.ts-side    { flex: 1; display: flex; flex-direction: column; gap: .4rem; }
+.ts-label   { font-family: var(--ff-head); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; }
+.ts-player  {
+  background: rgba(245,166,35,.08); border: 1px solid rgba(245,166,35,.25);
+  border-radius: 8px; padding: .5rem .7rem; font-size: .85rem;
+  display: flex; flex-direction: column; gap: .15rem;
+}
+.ts-empty   {
+  border: 1.5px dashed var(--border); border-radius: 8px;
+  padding: .6rem .7rem; font-size: .8rem; text-align: center;
+}
+.ts-arrow   { font-size: 1.4rem; color: var(--gold); flex-shrink: 0; }
+.propose-btn { width: 100%; justify-content: center; margin-top: .9rem; }
+
+/* ── INCOMING / HISTORY ─────────────── */
+.tw-incoming,
+.tw-history {
+  display: flex; flex-direction: column; gap: .7rem; max-width: 780px; width: 100%;
+}
+.no-trades { flex: 1; }
+
+/* Trade card */
+.trade-card { padding: 1rem 1.2rem; }
+.tc-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: .8rem;
+}
+.tc-teams  { display: flex; align-items: center; gap: .6rem; }
+.tc-arrow  { font-size: 1.1rem; }
+.tc-status {
+  font-family: var(--ff-head); font-size: .75rem;
+  letter-spacing: .15em; font-weight: 700;
+}
+.tc-players {
+  display: flex; align-items: center; gap: .7rem; margin-bottom: .7rem;
+}
+.tc-player { flex: 1; display: flex; flex-direction: column; gap: .35rem; }
+.tcp-label { font-size: .7rem; letter-spacing: .08em; font-family: var(--ff-head); text-transform: uppercase; }
+.tcp-card  {
+  background: var(--card2); border: 1px solid var(--border);
+  border-radius: 8px; padding: .55rem .7rem;
+  display: flex; align-items: center; gap: .5rem; font-size: .88rem;
+}
+.tcp-name  { flex: 1; }
+.tc-vs     { font-size: 1rem; flex-shrink: 0; }
+.tc-msg    { font-size: .8rem; font-style: italic; margin-bottom: .6rem; }
+.tc-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .tw-propose-grid {
+    grid-template-columns: 1fr;
+  }
+  .tw-squad-panel { max-height: 280px; }
+}
