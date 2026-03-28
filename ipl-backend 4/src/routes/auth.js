@@ -16,7 +16,7 @@ router.post('/register', async (req, res) => {
       'INSERT INTO users (username, email, password) VALUES (?,?,?)',
       [username, email, hash]
     );
-    const token = jwt.sign(
+    const token = jwt.sign( //tokens
       { id: r.insertId, username },
       process.env.JWT_SECRET,
       { expiresIn: process.env.JWT_EXPIRES_IN }
